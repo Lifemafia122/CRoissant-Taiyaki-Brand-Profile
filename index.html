@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Croissant Taiyaki — Brand Profile 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ──────────────────────────────── */
+:root{
+  --bg:#0F0D0A;--bg2:#181410;--bg3:#221C14;--bg4:#2C2418;
+  --cream:#EDE0CC;--cream2:#C8B898;--cream3:#7A6C58;
+  --orange:#FF4E00;--orange2:#FF2400;--gold:#FFB800;--gold2:#FF8C00;
+  --yellow:#FFE500;--yellow2:#FFF176;
+  --teal:#00D4A8;
+  --line:#2C2418;--line2:#3A3020;
+  --t:.24s cubic-bezier(.4,0,.2,1);
+  --grad:linear-gradient(135deg,#FF2400 0%,#FF4E00 45%,#FFB800 100%);
+  --grad-text:linear-gradient(135deg,#FF4E00,#FFB800);
+  --grad-yellow:linear-gradient(135deg,#FFE500 0%,#FFB800 100%);
+}
+[data-theme=light]{
+  --bg:#F5EFE6;--bg2:#EDE5D8;--bg3:#E0D5C0;--bg4:#D8CCBC;
+  --cream:#1A1208;--cream2:#3A2C18;--cream3:#7A6C58;
+  --line:#D8CCBC;--line2:#C8BCA8;
+}
+
+/* ── RESET ───────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--line2)}
+
+
+/* ── GRADIENT UTILITIES ──────────────── */
+.g-text{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.g-border{border-image:var(--grad) 1}
+.g-bg{background:var(--grad)}
+/* ── TICKER ──────────────────────────────── */
+.ticker{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--grad);padding:9px 0;overflow:hidden;white-space:nowrap}
+.t-track{display:inline-block;animation:tick 40s linear infinite}
+.t-track span{font-size:10px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;color:#fff;padding:0 40px}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── NAV ─────────────────────────────────── */
+.nav{position:fixed;top:36px;left:0;right:0;z-index:999;padding:0 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);cursor:pointer;user-select:none}
+.nav-logo span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-links a{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cream3);transition:color var(--t)}
+.nav-links a:hover{color:var(--cream)}
+.nav-r{display:flex;gap:12px;align-items:center}
+.tbtn{width:32px;height:32px;border-radius:50%;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all var(--t)}
+.tbtn:hover{border-color:var(--orange)}
+.nav-cta{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:20px;background:var(--grad);color:#fff;transition:all var(--t);box-shadow:0 2px 12px rgba(255,78,0,.3)}
+.nav-cta:hover{opacity:.9;box-shadow:0 4px 20px rgba(255,78,0,.5);transform:translateY(-1px)}
+
+/* ── HERO ────────────────────────────────── */
+#home{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;padding-top:90px;position:relative;overflow:hidden;background:var(--bg)}
+.hl{padding:80px 60px 80px max(60px,8vw);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.h-eye{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.h-eye::before{content:'';width:32px;height:1px;background:var(--orange)}
+.h1{font-size:clamp(52px,8vw,112px);font-weight:900;line-height:.86;letter-spacing:-.04em;color:var(--cream)}
+.h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--orange);display:block}
+.h-div{width:48px;height:1px;background:var(--line2);margin:28px 0}
+.h-sub{font-size:13px;color:var(--cream3);line-height:1.9;max-width:340px;margin-bottom:16px}
+.h-sub b{color:var(--cream);font-weight:700}
+.h-stats{display:flex;gap:32px;margin-bottom:40px}
+.hs-n{font-size:36px;font-weight:900;letter-spacing:-.03em;line-height:1;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hs-l{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cream3);margin-top:4px}
+.h-cta{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);transition:color var(--t);align-self:flex-start}
+.h-cta::after{content:'→';font-size:16px;font-weight:400;transition:transform var(--t)}
+.h-cta:hover{color:var(--orange)}
+.h-cta:hover::after{transform:translateX(6px)}
+/* Hero Right — full image */
+.hr{position:relative;overflow:hidden;border-left:1px solid var(--line)}
+.hr-bg{position:absolute;bottom:-10px;right:-10px;font-size:clamp(120px,18vw,240px);font-weight:900;color:transparent;-webkit-text-stroke:1px var(--line2);line-height:1;pointer-events:none;user-select:none;z-index:1}
+.hr-img{position:absolute;inset:0;z-index:2}
+.hr-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hr-badge{position:absolute;bottom:32px;left:32px;z-index:3;background:var(--orange);padding:12px 20px;border-radius:2px}
+.hr-badge strong{display:block;font-size:24px;font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1}
+.hr-badge span{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+
+
+/* ── HERO TAGS (selling points) ─────── */
+.h-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.h-tag{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:20px;border:1px solid rgba(255,78,0,.4);color:var(--cream2);background:rgba(255,78,0,.1);backdrop-filter:blur(4px)}
+/* hero badge gradient */
+.hr-badge{background:var(--grad)!important}
+/* ── MANIFESTO ───────────────────────────── */
+.manifesto{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 60px;display:flex;align-items:center;background:linear-gradient(90deg,var(--bg) 0%,#1C1008 40%,#1F1206 60%,var(--bg) 100%)}
+.mf-item{flex:1;text-align:center;position:relative;padding:0 16px}
+.mf-item+.mf-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line)}
+.mf-n{font-size:38px;font-weight:900;letter-spacing:-.03em;line-height:1;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mf-l{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cream3);margin-top:4px}
+
+/* ── SHARED SECTION STYLES ───────────────── */
+section{padding:96px 60px;position:relative}
+.w{max-width:1180px;margin:0 auto}
+.sec-eye{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:10px;margin-bottom:14px;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-eye::before{content:'';width:24px;height:2px;background:var(--grad);-webkit-text-fill-color:initial}
+.sec-h{font-size:clamp(38px,5.5vw,66px);font-weight:900;letter-spacing:-.04em;line-height:.9;color:var(--cream)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── KEY STATEMENT ───────────────────────── */
+.statement{background:var(--bg);border-top:1px solid var(--line);overflow:hidden}
+.st-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:700px}
+.st-left{padding:80px max(48px,6vw);display:flex;flex-direction:column;justify-content:center}
+.st-badge{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:10px;margin-bottom:36px}
+.st-badge::before{content:'';width:24px;height:1px;background:var(--orange)}
+.st-kw{font-size:clamp(72px,10vw,130px);font-weight:900;letter-spacing:-.05em;line-height:.82;display:block;color:var(--cream)}
+.st-kw.org{color:var(--orange)}
+.st-kw.out{color:transparent;-webkit-text-stroke:1.5px var(--line2)}
+.st-line{width:48px;height:1px;background:var(--orange);margin:28px 0}
+.st-desc{font-size:13px;color:var(--cream3);line-height:1.9;max-width:380px}
+.st-desc b{color:var(--cream);font-weight:900}
+.st-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.pill{font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:6px 14px;border-radius:2px;border:1px solid var(--line2);color:var(--cream3);transition:all var(--t)}
+.pill.hot{background:var(--grad);border:none;color:#fff;box-shadow:0 4px 16px rgba(255,78,0,.4)}
+.st-right{position:relative;overflow:hidden;border-left:1px solid var(--line)}
+.st-right img{width:100%;height:100%;object-fit:cover;display:block}
+.st-right::after{content:'';position:absolute;inset:0;left:0;background:linear-gradient(to right,var(--bg) 0%,transparent 40%);pointer-events:none}
+
+/* ── ABOUT — asymmetric 55/45 ────────────── */
+#about{background:var(--bg);border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+/* Duo image layout */
+.about-duo{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:320px 240px;gap:6px}
+.ad-frame{position:relative;overflow:hidden;background:var(--bg2);border:1px solid var(--line2)}
+.ad-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.ad-frame:hover img{transform:scale(1.04)}
+.ad-frame.tall{grid-row:span 2}
+.ad-accent{position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
+.ad-label{display:none}
+.about-text{padding-top:12px}
+.a-origin{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:20px}
+.about-text p{font-size:14px;color:var(--cream3);line-height:1.9;margin-bottom:16px}
+.about-text p b{color:var(--cream);font-weight:700}
+.about-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:28px}
+.a-tag{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line2);border-radius:2px;padding:5px 12px;color:var(--cream3);transition:all var(--t)}
+.a-tag:hover{border-color:transparent;background:var(--grad);color:#fff;-webkit-text-fill-color:#fff}
+
+/* ── HISTORY ─────────────────────────────── */
+#history{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hist-grid{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.hist-col:first-child{border-right:1px solid var(--line);padding-right:48px}
+.hist-col:last-child{padding-left:48px}
+.he{padding:28px 0;border-bottom:1px solid var(--line)}
+.he:last-child{border:none}
+.he-yr{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.he-ttl{font-size:17px;font-weight:900;color:var(--cream);letter-spacing:-.01em;margin-bottom:8px}
+.he-body{font-size:13px;color:var(--cream3);line-height:1.85}
+/* History image strip */
+.hist-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;margin-top:48px;height:240px}
+.hs-frame{position:relative;overflow:hidden;background:var(--bg3);border:1px solid var(--line2)}
+.hs-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.hs-frame:hover img{transform:scale(1.04)}
+
+/* ── TARGET AUDIENCE ─────────────────────── */
+#target{background:var(--bg);border-top:1px solid var(--line)}
+.target-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.tg-card{background:var(--bg2);padding:48px 40px;position:relative;overflow:hidden;border-top:4px solid transparent;background-clip:padding-box;position:relative}
+.tg-card.sec{border-top-color:var(--gold)}
+.tg-card::before{content:'';position:absolute;inset:0;opacity:.04;pointer-events:none;background:radial-gradient(ellipse at bottom right,var(--orange) 0%,transparent 70%)}
+.tg-card.sec::before{background:radial-gradient(ellipse at bottom right,var(--gold) 0%,transparent 70%)}
+.tg-num{font-size:80px;font-weight:900;color:var(--line2);position:absolute;bottom:-10px;right:20px;letter-spacing:-.04em;line-height:1;pointer-events:none}
+.tg-type{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cream3);margin-bottom:12px;display:block}
+.tg-head{font-size:28px;font-weight:900;color:var(--cream);letter-spacing:-.02em;margin-bottom:8px;line-height:1.1}
+.tg-sub{font-size:12px;color:var(--orange);font-weight:700;margin-bottom:24px;letter-spacing:.04em}
+.tg-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tg-list li{font-size:13px;color:var(--cream3);line-height:1.7;padding-left:20px;position:relative}
+.tg-list li::before{content:'→';position:absolute;left:0;color:var(--orange)}
+.tg-card.sec .tg-list li::before{background:linear-gradient(135deg,#FFD700,#FFB800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+
+.tg-card::after{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.tg-card.sec::after{background:linear-gradient(135deg,#FFD700,#FFB800)}
+/* ── BRAND POSITIONING ───────────────────── */
+#positioning{background:var(--bg2);border-top:1px solid var(--line);position:relative}
+.pos-layout{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:48px}
+.pos-text{display:flex;flex-direction:column;gap:4px}
+.pos-block{background:var(--bg3);padding:36px}
+.pos-block.hi{background:var(--orange)}
+.pos-block.hi .pb-label,.pos-block.hi .pb-body{color:rgba(255,255,255,.75)}
+.pos-block.hi .pb-head{color:#fff}
+.pb-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cream3);margin-bottom:12px;display:block}
+.pb-head{font-size:22px;font-weight:900;color:var(--cream);letter-spacing:-.02em;margin-bottom:12px;line-height:1.2}
+.pb-body{font-size:13px;color:var(--cream3);line-height:1.8}
+.pos-img{position:relative;overflow:hidden;min-height:100%;background:var(--bg3)}
+.pos-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ── PRODUCT STRENGTH ────────────────────── */
+#strength{background:var(--bg);border-top:1px solid var(--line)}
+.str-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:48px}
+.str-card{background:var(--bg2);padding:36px;border-top:3px solid var(--orange);transition:all var(--t);position:relative}
+.str-card:hover{border-top-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,78,0,.12)}
+.sc-num{font-size:11px;font-weight:900;letter-spacing:.12em;margin-bottom:12px;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sc-head{font-size:16px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.sc-body{font-size:13px;color:var(--cream3);line-height:1.8}
+
+/* ── PRODUCTS — card grid ────────────────── */
+#products{background:var(--bg2)}
+.ptabs{display:flex;gap:0;margin-bottom:0;border-bottom:1px solid var(--line);margin-top:40px}
+.ptab{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--cream3);padding:14px 24px;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all var(--t);cursor:pointer;background:none}
+.ptab:hover,.ptab.on{color:var(--cream);border-color:var(--orange)}
+/* product grid — 2 columns */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.prod-card{background:var(--bg3);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background var(--t)}
+.prod-card:hover{background:var(--bg4)}
+/* Visual area — top */
+.pc-visual{height:220px;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
+.pc-visual::after{content:'';position:absolute;inset:0;border-bottom:1px solid var(--line2)}
+.pc-emoji{font-size:72px;line-height:1;z-index:1;position:relative}
+.pc-vtag{display:none}
+.pc-num{display:none}
+.pc-acc{position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
+/* Info area — bottom */
+.pc-info{padding:24px 28px;flex:1;display:flex;flex-direction:column}
+.pc-name{font-size:22px;font-weight:900;color:var(--cream);letter-spacing:-.02em;margin-bottom:4px;line-height:1.1}
+.pc-en{font-size:11px;color:var(--cream3);font-style:italic;margin-bottom:12px}
+.pc-desc{font-size:12px;color:var(--cream3);line-height:1.7;flex:1}
+.pc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--line2)}
+.pc-price{font-size:28px;font-weight:900;color:var(--cream);letter-spacing:-.03em;line-height:1}
+.pc-price sub{font-size:13px;color:var(--cream3);font-weight:400}
+.pc-badge{font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);padding:4px 12px;border-radius:20px;transition:all var(--t)}
+
+/* ── THE CRAFT ───────────────────────────── */
+#craft{background:var(--bg);border-top:1px solid var(--line);position:relative}
+.craft-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.craft-secret{background:var(--bg2);padding:36px;border:1px solid var(--line2);position:relative;margin-bottom:6px}
+.craft-secret::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orange)}
+.cs-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block}
+.cs-head{font-size:24px;font-weight:900;color:var(--cream);margin-bottom:14px;letter-spacing:-.02em}
+.cs-body{font-size:13px;color:var(--cream3);line-height:1.85}
+.craft-steps{display:flex;flex-direction:column;gap:0}
+.ci{display:grid;grid-template-columns:48px 1fr;gap:0 16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.ci:last-child{border:none}
+.ci-n{font-size:11px;font-weight:900;color:var(--orange);letter-spacing:.12em;padding-top:2px}
+.ci-h{font-size:14px;font-weight:900;color:var(--cream);margin-bottom:5px;text-transform:uppercase;letter-spacing:.03em}
+.ci-b{font-size:12px;color:var(--cream3);line-height:1.8}
+/* Craft image stack */
+.craft-imgs{display:flex;flex-direction:column;gap:6px;height:100%}
+.ci-frame{position:relative;overflow:hidden;background:var(--bg2);border:1px solid var(--line2)}
+.ci-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.ci-frame:hover img{transform:scale(1.04)}
+.ci-frame.big{flex:2;min-height:280px}
+.ci-frame.sm{flex:1;min-height:180px}
+
+/* ── USP ─────────────────────────────────── */
+#usp{background:linear-gradient(135deg,#0F0D0A 0%,#1A1206 50%,#0F0D0A 100%);border-top:1px solid var(--line);position:relative}
+#usp::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFB800' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.usp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:48px}
+.usp-card{background:var(--bg3);padding:36px 28px;border-top:3px solid var(--orange);transition:all var(--t);position:relative;overflow:hidden}
+.usp-card:nth-child(2){border-top-color:var(--gold)}
+.usp-card:nth-child(3){border-top-color:#4A9080}
+.usp-card:hover{background:var(--bg4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,78,0,.15)}
+.uc-n{font-size:48px;font-weight:900;color:var(--line2);position:absolute;top:16px;right:16px;letter-spacing:-.04em;line-height:1;pointer-events:none;transition:color var(--t)}
+.usp-card:hover .uc-n{color:var(--line)}
+.uc-icon{font-size:28px;margin-bottom:16px}
+.uc-h{font-size:14px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.uc-b{font-size:12px;color:var(--cream3);line-height:1.75}
+
+/* ── QUOTE ───────────────────────────────── */
+.quote-bar{padding:80px 60px;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.quote-bar-img{position:absolute;inset:0;z-index:0}
+.quote-bar-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(60%)}
+.quote-bar-overlay{position:absolute;inset:0;background:rgba(10,8,5,.88);z-index:1}
+.quote-bar::before{content:'\201C';position:absolute;top:-50px;left:40px;font-size:240px;font-weight:900;color:rgba(255,78,0,.15);line-height:1;pointer-events:none;z-index:2}
+.q-inner{max-width:880px;margin:0 auto;position:relative;z-index:3}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,38px);font-style:italic;color:var(--cream2);line-height:1.5;font-weight:700}
+.q-text em{font-style:normal;color:#FFB800;text-shadow:0 0 30px rgba(255,184,0,.4)}
+.q-attr{margin-top:20px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cream3);display:flex;align-items:center;gap:12px}
+.q-attr::before{content:'';width:32px;height:1px;background:var(--orange)}
+
+/* ── BOOTH — asymmetric 1-big + 3-stack ─── */
+#booth{background:var(--bg2);border-top:4px solid transparent;position:relative}
+#booth::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+.booth-hero{display:grid;grid-template-columns:3fr 2fr;gap:6px;margin-top:48px;height:480px}
+.booth-main{position:relative;overflow:hidden;background:var(--bg3)}
+.booth-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.booth-main:hover img{transform:scale(1.04)}
+.booth-stack{display:flex;flex-direction:column;gap:6px}
+.bs-frame{flex:1;position:relative;overflow:hidden;background:var(--bg3)}
+.bs-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.bs-frame:hover img{transform:scale(1.05)}
+.booth-cap{display:none}
+.booth-events{margin-top:32px;padding-top:28px;border-top:1px solid var(--line);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.be-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cream3);flex-shrink:0}
+.ev-chips{display:flex;gap:8px;flex-wrap:wrap}
+.ev-chip{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--cream3);border:1px solid var(--line2);padding:6px 16px;border-radius:2px;transition:all var(--t)}
+.ev-chip:hover{border-color:var(--orange);color:var(--cream)}
+
+/* ── LOCATIONS ───────────────────────────── */
+#locations{background:var(--bg);border-top:1px solid var(--line)}
+.loc-table{margin-top:48px;border-top:1px solid var(--line)}
+.loc-row{display:grid;grid-template-columns:72px 1fr 200px 180px;align-items:center;gap:0;padding:22px 0;border-bottom:1px solid var(--line);transition:background var(--t)}
+.loc-row:hover{background:var(--bg2)}
+.loc-num{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--orange);text-transform:uppercase}
+.loc-name{font-size:16px;font-weight:900;color:var(--cream);letter-spacing:-.01em}
+.loc-sub{font-size:11px;color:var(--cream3);margin-top:2px}
+.loc-hours{font-size:11px;color:var(--cream3);line-height:1.7}
+.loc-chips{display:flex;gap:6px}
+.lc{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--cream3);border:1px solid var(--line2);padding:4px 10px;border-radius:2px;transition:all var(--t)}
+.lc:hover{border-color:transparent;background:var(--grad);color:#fff}
+/* Photo grid — 4 images horizontal */
+.loc-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:32px;height:200px}
+.lp-frame{position:relative;overflow:hidden;background:var(--bg2)}
+.lp-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.lp-frame:hover img{transform:scale(1.05)}
+.lp-label{display:none}
+
+/* ── CONTACT ─────────────────────────────── */
+#contact{background:var(--bg2);border-top:1px solid var(--line)}
+.soc-grid{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.sc{padding:32px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:8px;transition:background var(--t)}
+.sc:last-child{border:none}
+.sc:hover{background:var(--bg3)}
+.si{font-size:24px;line-height:1;margin-bottom:4px}
+.sn{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--cream3);text-align:center;transition:color var(--t)}
+.sc:hover .sn{color:var(--cream)}
+.sh2{font-size:10px;color:var(--cream3);text-align:center;letter-spacing:.04em}
+.partner{display:none}
+.partner h3{font-size:32px;font-weight:900;color:var(--cream);letter-spacing:-.03em;margin-bottom:10px}
+.partner p{font-size:13px;color:var(--cream3);line-height:1.8}
+.p-btns{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.p-btn{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:12px 24px;border:1px solid;border-radius:2px;transition:all var(--t);white-space:nowrap}
+.p-pri{background:var(--orange);border-color:var(--orange);color:#fff}
+.p-pri:hover{background:transparent;color:var(--orange)}
+.p-gho{border-color:var(--line2);color:var(--cream3)}
+.p-gho:hover{border-color:var(--cream3);color:var(--cream)}
+
+/* ── FOOTER ──────────────────────────────── */
+footer{background:linear-gradient(90deg,#0F0D0A,#1A1208,#0F0D0A);border-top:3px solid transparent;padding:20px 60px;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+footer .ft-l2{color:#555}display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ft-l{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.ft-c{font-size:10px;color:var(--cream3);letter-spacing:.04em}
+.ft-links{display:flex;gap:20px}
+.ft-links a{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cream3);transition:color var(--t)}
+.ft-links a:hover{color:var(--cream)}
+
+/* ── ADMIN PANEL ─────────────────────────── */
+#admin{position:fixed;inset:0;z-index:9999;display:none}
+#admin.open{display:flex}
+.ap-bg{position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+.ap-panel{position:absolute;right:0;top:0;bottom:0;width:420px;background:#111;border-left:1px solid #333;display:flex;flex-direction:column;overflow:hidden;box-shadow:-20px 0 60px rgba(0,0,0,.5)}
+.ap-head{padding:24px 28px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ap-title{font-size:14px;font-weight:900;letter-spacing:.08em;color:#fff}
+.ap-title span{color:var(--orange);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:2px}
+.ap-close{width:32px;height:32px;border-radius:50%;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:#888;font-size:14px;transition:all .2s}
+.ap-close:hover{border-color:#FF4E00;color:#FF4E00}
+.ap-body{flex:1;overflow-y:auto;padding:20px 28px}
+.ap-section{margin-bottom:28px}
+.ap-section-title{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#FF4E00;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ap-section-title::before{content:'';width:20px;height:1px;background:#FF4E00}
+.ap-slots-grid{display:flex;flex-direction:column;gap:8px}
+.ap-slot{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:4px;padding:12px;display:flex;align-items:center;gap:12px;transition:border-color .2s;cursor:pointer}
+.ap-slot:hover{border-color:#FF4E00}
+.ap-slot-preview{width:56px;height:42px;border-radius:3px;overflow:hidden;background:#222;flex-shrink:0;border:1px solid #333}
+.ap-slot-preview img{width:100%;height:100%;object-fit:cover;display:block}
+.ap-slot-info{flex:1;min-width:0}
+.ap-slot-name{font-size:11px;font-weight:700;color:#fff;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ap-slot-status{font-size:10px;color:#555}
+.ap-slot-status.has-img{color:#4caf50}
+.ap-slot-btn{font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#FF4E00;border:1px solid #FF4E00;padding:4px 10px;border-radius:2px;flex-shrink:0;transition:all .2s}
+.ap-slot-btn:hover{background:#FF4E00;color:#fff}
+.ap-foot{padding:20px 28px;border-top:1px solid #222;display:flex;flex-direction:column;gap:8px;flex-shrink:0}
+.ap-export{width:100%;padding:12px;background:#FF4E00;color:#fff;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border-radius:3px;transition:background .2s}
+.ap-export:hover{background:#e04400}
+.ap-reset{width:100%;padding:10px;background:transparent;color:#555;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:1px solid #2a2a2a;border-radius:3px;transition:all .2s}
+.ap-reset:hover{border-color:#555;color:#999}
+.ap-hint{font-size:10px;color:#444;text-align:center;margin-top:4px}
+/* Drop zone overlay per slot */
+input[type=file].ap-file-inp{display:none}
+/* Toast notification */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--orange);color:#fff;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:10px 24px;border-radius:3px;opacity:0;transition:all .3s;z-index:10000;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+
+/* ── BRANCH MANAGER in ADMIN ─────────── */
+.bm-list{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.bm-item{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:4px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.bm-num{font-size:11px;font-weight:700;color:#FF4E00;width:24px;flex-shrink:0}
+.bm-info{flex:1;min-width:0}
+.bm-name{font-size:12px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bm-detail{font-size:10px;color:#555;margin-top:1px}
+.bm-del{width:28px;height:28px;border-radius:3px;border:1px solid #333;color:#555;font-size:12px;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.bm-del:hover{border-color:#ff4444;color:#ff4444}
+.bm-form{background:#1a1a1a;border:1px solid #333;border-radius:4px;padding:16px}
+.bm-form-title{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF4E00;margin-bottom:12px}
+.bm-input{width:100%;background:#111;border:1px solid #333;border-radius:3px;padding:8px 10px;color:#fff;font-size:12px;font-family:inherit;margin-bottom:8px;transition:border-color .2s}
+.bm-input:focus{outline:none;border-color:#FF4E00}
+.bm-input::placeholder{color:#444}
+.bm-checks{display:flex;gap:16px;margin-bottom:10px}
+.bm-check{display:flex;align-items:center;gap:6px;font-size:11px;color:#888;cursor:pointer}
+.bm-check input{accent-color:#FF4E00}
+.bm-add-btn{width:100%;padding:9px;background:#FF4E00;color:#fff;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border-radius:3px;transition:background .2s}
+.bm-add-btn:hover{background:#e04400}
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:960px){
+  .nav-links{display:none}
+  #home{grid-template-columns:1fr;padding-top:88px}
+  .hl{padding:40px 24px}
+  .hr{display:none}
+  section{padding:64px 24px}
+  .quote-bar{padding:64px 24px}
+  .manifesto{padding:20px 24px}
+  .mf-n{font-size:28px}
+  .about-grid,.craft-wrap,.hist-grid,.target-grid,.pos-layout{grid-template-columns:1fr;gap:40px}
+  .hist-col:first-child{border-right:none;padding-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}
+  .hist-col:last-child{padding-left:0}
+  .hist-strip{grid-template-columns:1fr 1fr;height:auto}
+  .hs-frame{height:160px}
+  .str-grid,.usp-grid,.prod-grid{grid-template-columns:1fr}
+  .loc-row{grid-template-columns:56px 1fr;gap:8px}
+  .loc-hours,.loc-chips{display:none}
+  .soc-grid{grid-template-columns:repeat(2,1fr)}
+  .partner{grid-template-columns:1fr}
+  .booth-hero{grid-template-columns:1fr;height:auto}
+  .booth-stack{flex-direction:row}
+  .bs-frame{height:200px}
+  .st-wrap{grid-template-columns:1fr}
+  .st-right{min-height:320px}
+  .pos-layout{grid-template-columns:1fr}
+  .loc-photos{grid-template-columns:1fr 1fr;height:auto}
+  .lp-frame{height:160px}
+  .ap-panel{width:100%}
+  footer{flex-direction:column;text-align:center}
+  .ft-links{justify-content:center}
+}
+@media(max-width:640px){
+  .prod-grid{grid-template-columns:1fr}
+  .about-duo{grid-template-rows:260px 180px}
+}
+
+/* ── CONTACT REDESIGN ─────────────── */
+.sc{padding:36px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;transition:all var(--t);background:var(--bg3);border-top:3px solid var(--line2);position:relative}
+.sc:hover{background:var(--bg4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.sc-fb:hover{border-top-color:#1877F2}.sc-line:hover{border-top-color:#06C755}
+.sc-ig:hover{border-top-color:#E1306C}.sc-tt:hover{border-top-color:#ff0050}
+.si{font-size:32px;line-height:1;margin-bottom:8px}
+.sc-arrow{position:absolute;bottom:12px;right:16px;font-size:14px;color:var(--line2);transition:all var(--t)}
+.sc:hover .sc-arrow{color:var(--orange);transform:translateX(4px)}
+.franchise-cta{margin-top:4px;background:var(--bg3);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.franchise-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.fc-left{flex:1}
+.fc-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#FFB800;margin-bottom:10px}
+.fc-head{font-size:28px;font-weight:900;color:var(--cream);letter-spacing:-.02em;margin-bottom:8px}
+.fc-body{font-size:13px;color:var(--cream3);line-height:1.8}
+.fc-btn{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;padding:16px 32px;border-radius:3px;background:var(--grad);color:#fff;white-space:nowrap;flex-shrink:0;transition:all var(--t);box-shadow:0 4px 20px rgba(255,78,0,.3)}
+.fc-btn:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,78,0,.45)}
+
+/* ── STATEMENT MISSING CSS ─────────── */
+.st-unit-row{display:flex;align-items:center;gap:20px;margin-top:12px;margin-bottom:28px;flex-wrap:wrap}
+.st-unit-th{font-size:clamp(44px,6vw,80px);font-weight:900;color:var(--cream);letter-spacing:-.03em;line-height:1}
+.st-unit-en{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#FFB800;border-left:2px solid #FFB800;padding-left:14px;line-height:1.4}
+.st-line{width:60px;height:2px;background:var(--grad);margin-bottom:20px;border:none;outline:none}
+.st-sub{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#FFB800;margin-bottom:14px}
+.st-badge{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:32px;color:var(--cream3)}
+.st-badge::before{content:'';width:24px;height:1px;background:var(--grad)}
+.st-left{padding:72px max(48px,6vw);display:flex;flex-direction:column;justify-content:center}
+.st-num{font-size:clamp(180px,24vw,300px);font-weight:900;letter-spacing:-.06em;line-height:.75;display:block;color:var(--orange);padding-bottom:8px;text-shadow:0 0 100px rgba(255,78,0,.5),0 0 40px rgba(255,140,0,.3)}
+.statement{background:linear-gradient(160deg,#0F0D0A 0%,#1C1006 55%,#0F0D0A 100%);border-top:3px solid transparent;overflow:hidden;position:relative}
+.statement::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+
+/* ── YELLOW/GOLD ACCENTS ────────────── */
+.gold-strip{height:3px;background:linear-gradient(90deg,transparent 0%,#FFB800 30%,#FF8C00 70%,transparent 100%)}
+.he-yr{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:inline-block;background:#FFB800;color:#0F0D0A;padding:3px 10px;border-radius:2px}
+
+/* ── TARGET CARDS EQUAL HEIGHT ─────── */
+.target-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:4px;align-items:stretch}
+.tg-card{background:var(--bg2);padding:48px 40px;position:relative;overflow:hidden;display:flex;flex-direction:column;height:100%}
+.tg-list{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1}
+
+
+/* ── BRANCH PHOTOS DYNAMIC ──────────── */
+.lp-name-overlay{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(transparent,rgba(10,8,5,.9));font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--cream2);opacity:0;transition:opacity .3s}
+.lp-frame:hover .lp-name-overlay{opacity:1}
+
+/* ── MORE YELLOW THROUGHOUT ─────────── */
+/* History entries — gold left marker */
+.he{padding:28px 0;border-bottom:1px solid var(--line);border-left:3px solid transparent;padding-left:16px;margin-left:-16px;transition:border-color .3s}
+.he:hover{border-left-color:#FFB800}
+/* Target card primary numbers */
+.tg-num{font-size:72px;font-weight:900;color:rgba(255,184,0,.1);position:absolute;bottom:-10px;right:16px;letter-spacing:-.04em;line-height:1;pointer-events:none}
+.tg-card:hover .tg-num{color:rgba(255,184,0,.15)}
+/* Loc-row num — gold badge (done inline in JS) */
+/* USP card 2 — gold accent bg on hover */
+.usp-card:nth-child(2):hover{background:rgba(255,184,0,.06)}
+/* Strength card — gold bar bottom on hover */
+.str-card:hover::after{content:'';display:block;position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold)}
+.str-card{position:relative;overflow:hidden}
+/* He-yr — already gold badge, make bigger */
+.he-yr{font-size:10px!important;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;display:inline-flex;align-items:center;gap:6px;background:#FFB800;color:#0F0D0A;padding:4px 12px;border-radius:20px}
+/* Manifesto 24 item — gold card effect */
+.mf-item:first-child{background:linear-gradient(135deg,rgba(255,184,0,.12),rgba(255,100,0,.08));border-radius:6px}
+/* Quote attr line color */
+.q-attr::before{background:linear-gradient(to right,#FFB800,#FF4E00)!important}
+/* About tags — alternating gold */
+.about-tags .a-tag:nth-child(odd):hover{background:#FFB800!important;color:#0F0D0A!important;border-color:#FFB800!important}
+/* Product price — gold tint */
+.pc-price{color:#EDE0CC}
+/* USP pill for 24 layers */
+.usp-card:first-child .usp-pill{background:#FFB800!important;color:#0F0D0A!important}
+/* h-tag gold tag pulse */
+.h-tag[style*="FFB800"]{animation:gold-pulse 3s ease-in-out infinite}
+@keyframes gold-pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,184,0,.4)}50%{box-shadow:0 0 16px 4px rgba(255,184,0,.25)}}
+/* Section eye — gold variant */
+.sec-eye.gold{color:#FFB800}
+.sec-eye.gold::before{background:#FFB800}
+
+/* ── BRANCH CARDS ───────────────────── */
+.branch-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px;margin-top:48px}
+.branch-card{background:var(--bg2);border-top:3px solid var(--line2);display:flex;flex-direction:column;transition:all var(--t);position:relative;overflow:hidden}
+.branch-card:hover{border-top-color:var(--orange);transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,78,0,.15)}
+.bc-photo{width:100%;height:200px;overflow:hidden;background:var(--bg3);position:relative;flex-shrink:0}
+.bc-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.branch-card:hover .bc-photo img{transform:scale(1.06)}
+.bc-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#1A1206 0%,#241A08 60%,#1A1206 100%);border:1px dashed rgba(255,184,0,.25)}
+.bc-ph-fish{font-size:32px;line-height:1;filter:grayscale(60%);opacity:.5}
+.bc-ph-num{font-size:48px;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,rgba(255,184,0,.15),rgba(255,140,0,.08));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.bc-ph-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,184,0,.3)}
+/* branch card with no photo — dashed gold border */
+.branch-card.no-photo{border-top-color:rgba(255,184,0,.4)!important}
+.branch-card.no-photo:hover{border-top-color:#FFB800!important}
+.bc-info{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column}
+.bc-num{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.bc-name{font-size:16px;font-weight:900;color:var(--cream);letter-spacing:-.01em;margin-bottom:3px;line-height:1.2}
+.bc-sub{font-size:11px;color:var(--cream3);margin-bottom:12px;letter-spacing:.04em}
+.bc-hours{font-size:11px;color:var(--cream3);line-height:1.65;margin-bottom:14px;flex:1}
+.bc-chips{display:flex;gap:6px;flex-wrap:wrap}
+.bc-upload-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:var(--cream3);border:1px solid rgba(255,255,255,.15);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:2px;cursor:pointer;opacity:0;transition:opacity var(--t);z-index:2;display:none}
+/* Upload overlay — only in admin mode */
+body.admin-mode .bc-upload-btn{display:block}
+body.admin-mode .branch-card:hover .bc-upload-btn{opacity:1}
+
+
+/* ── EXTRA YELLOW/GOLD ───────────────── */
+/* Section backgrounds with gold tint */
+#about{background:var(--bg);border-top:1px solid var(--line)}
+#history{background:linear-gradient(180deg,#181410 0%,#1A1508 50%,#181410 100%);border-top:1px solid var(--line)}
+#strength{background:linear-gradient(135deg,#0F0D0A 0%,#1A1608 100%);border-top:1px solid var(--line)}
+/* Craft section gold accent */
+#craft::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#FFB800 50%,transparent)}
+/* Gold glow on hover for loc cards */
+.branch-card:hover .bc-num{color:#FFB800}
+/* Product card price in gold tint */
+.pc-footer{border-top:1px solid rgba(255,184,0,.15)}
+/* Gold accent on h-stats */
+.h-stats{border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:20px 0;margin-bottom:32px}
+/* Manifesto gold bg */
+.manifesto{background:linear-gradient(90deg,var(--bg) 0%,rgba(255,184,0,.06) 40%,rgba(255,184,0,.08) 60%,var(--bg) 100%)}
+/* Strength cards — number badge bold yellow */
+.str-card:nth-child(2){border-top-color:var(--gold)}
+.str-card:nth-child(3){border-top-color:var(--gold)}
+/* History year label — already gold badge */
+/* Quote .q-text em → already gold */
+/* Strong gold for key section headings */
+#usp .sec-h em,.strength .sec-h em{color:#FFB800}
+/* Product card footer price — slightly warm */
+.pc-price{color:var(--cream)}
+/* Gold divider after sections */
+#strength::after{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,#FFB800 40%,#FF8C00 60%,transparent);margin-top:96px}
+/* USP card icons bigger + gold for 2nd */
+.usp-card:nth-child(2) .uc-icon{filter:sepia(1) saturate(3) hue-rotate(10deg)}
+/* Branch card number → gradient */
+.bc-num{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ── BRIGHT YELLOW ACCENTS ─────────────── */
+/* Ticker — สลับสีเหลืองสด */
+.t-track span:nth-child(odd){color:#FFE500}
+/* Nav logo — dot เหลือง */
+.nav-logo span{color:var(--yellow)!important}
+/* Hero eyebrow line — เหลือง */
+.h-eye{color:var(--yellow)!important}
+.h-eye::before{background:var(--yellow)!important}
+/* Hero stat numbers — เหลืองสด */
+.hs-n{background:linear-gradient(135deg,#FFE500,#FFB800)!important;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Hero tag เหลือง — overwrite */
+.h-tag[style*="FFB800"]{background:var(--yellow)!important;border-color:var(--yellow)!important;color:#0F0D0A!important;box-shadow:0 0 20px rgba(255,229,0,.4);animation:yellow-pulse 2.5s ease-in-out infinite}
+@keyframes yellow-pulse{0%,100%{box-shadow:0 0 12px rgba(255,229,0,.3)}50%{box-shadow:0 0 28px rgba(255,229,0,.6)}}
+/* Manifesto 24 — เหลืองสด */
+.mf-item:first-child .mf-n{color:var(--yellow)!important;-webkit-text-fill-color:var(--yellow)!important}
+.mf-item:first-child .mf-l{color:var(--yellow)!important;opacity:.8}
+.mf-item:first-child{background:rgba(255,229,0,.08)!important;border:1px solid rgba(255,229,0,.15);border-radius:4px}
+/* Statement 24 — เหลืองสด */
+.st-num{color:var(--yellow)!important;text-shadow:0 0 80px rgba(255,229,0,.5),0 0 30px rgba(255,229,0,.3)!important}
+/* st-unit-en border เหลือง */
+.st-unit-en{color:var(--yellow)!important;border-left-color:var(--yellow)!important}
+.st-sub{color:var(--yellow)!important}
+/* History year badge — เหลืองสด */
+.he-yr{background:var(--yellow)!important;color:#0F0D0A!important}
+/* Strength cards 02,03 — เหลืองสด */
+.str-card:nth-child(2){border-top-color:var(--yellow)!important}
+.str-card:nth-child(3){border-top-color:var(--yellow)!important}
+.str-card:nth-child(2):hover::after,.str-card:nth-child(3):hover::after{background:var(--yellow)!important}
+/* USP card 2 top border — เหลืองสด */
+.usp-card:nth-child(2){border-top-color:var(--yellow)!important}
+/* Product best-seller badge — เหลืองสด */
+.pc-badge[style*="FFB800"]{background:var(--yellow)!important;color:#0F0D0A!important;border:none;box-shadow:0 2px 12px rgba(255,229,0,.4)}
+/* Quote em highlight — เหลือง */
+.q-text em{color:var(--yellow)!important;text-shadow:0 0 30px rgba(255,229,0,.5)!important}
+/* Branch card bc-num — เหลือง */
+.bc-num{background:linear-gradient(135deg,var(--yellow),#FFB800)!important;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* Branch card top border hover — เหลือง */
+.branch-card:hover{border-top-color:var(--yellow)!important}
+/* Placeholder fish + num — เหลือง */
+.bc-ph-label{color:rgba(255,229,0,.4)!important}
+.bc-ph-num{-webkit-text-fill-color:transparent!important;background:linear-gradient(135deg,rgba(255,229,0,.2),rgba(255,184,0,.1))!important;-webkit-background-clip:text!important;background-clip:text!important}
+/* Strength card number badge 02,03 — เหลือง */
+.str-card:nth-child(2) [style*="FFB800"],.str-card:nth-child(3) [style*="FFB800"]{background:var(--yellow)!important;color:#0F0D0A!important}
+/* Gold strip divider — เหลืองสด */
+.gold-strip{background:linear-gradient(90deg,transparent 0%,var(--yellow) 30%,#FFB800 70%,transparent 100%)!important}
+/* Footer top border — เหลือง mix */
+footer::before{background:linear-gradient(90deg,var(--orange),var(--yellow),var(--orange))!important}
+/* Section eye เหลือง (alternate sections) */
+#strength .sec-eye,#history .sec-eye{background:linear-gradient(135deg,var(--yellow),#FFB800)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important}
+#strength .sec-eye::before,#history .sec-eye::before{background:var(--yellow)!important;-webkit-text-fill-color:initial!important}
+/* Lc chip hover — เหลือง */
+.lc:hover{background:var(--yellow)!important;border-color:var(--yellow)!important;color:#0F0D0A!important}
+/* Nav CTA button — เหลืองปน */
+.nav-cta{background:linear-gradient(135deg,#FF4E00,var(--yellow))!important}
+
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="t-track">
+    <span>CROISSANT TAIYAKI</span><span style="color:#FFE500">แป้ง 24 ชั้น</span><span>ต้นตำรับจากญี่ปุ่น</span><span style="color:#FFE500">เจ้าแรกในประเทศไทย</span><span>JAPANESE LICENSED</span><span style="color:#FFE500">ORIGINAL FRENCH SWEETS</span><span>ทำสดทุกวัน</span><span style="color:#FFE500">PREMIUM TEXTURE</span>
+    <span>CROISSANT TAIYAKI</span><span style="color:#FFE500">แป้ง 24 ชั้น</span><span>ต้นตำรับจากญี่ปุ่น</span><span style="color:#FFE500">เจ้าแรกในประเทศไทย</span><span>JAPANESE LICENSED</span><span style="color:#FFE500">ORIGINAL FRENCH SWEETS</span><span>ทำสดทุกวัน</span><span style="color:#FFE500">PREMIUM TEXTURE</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo" id="logoBtn">CROISSANT <span>TAIYAKI</span></div>
+  <div class="nav-links">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#products">Menu</a>
+    <a href="#craft">Craft</a><a href="#booth">Booth</a><a href="#locations">Locations</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-r">
+    <button class="tbtn" id="themeBtn">☀️</button>
+    <a href="#locations" class="nav-cta">Find Us</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="home">
+  <div class="hl">
+    <div class="h-eye">Japanese Licensed · Original French Sweets</div>
+    <h1 class="h1">CROISSANT<em>Taiyaki</em></h1>
+    <div class="h-div"></div>
+    <p class="h-sub">ครัวซองต์ปลา สูตรต้นตำรับจากญี่ปุ่น<br><b>เจ้าแรกและเจ้าเดียวในประเทศไทย</b></p>
+    <div class="h-tags">
+      <span class="h-tag" style="background:#FFB800;color:#0F0D0A;border-color:#FFB800;font-weight:900">🏆 แป้ง 24 ชั้น</span>
+      <span class="h-tag">🇯🇵 ต้นตำรับจากญี่ปุ่น</span>
+      <span class="h-tag">⭐ เจ้าแรกในไทย</span>
+    </div>
+    <div class="h-stats">
+      <div><div class="hs-n">24</div><div class="hs-l">Layers</div></div>
+      <div><div class="hs-n">5</div><div class="hs-l">Flavors</div></div>
+      <div><div class="hs-n">5</div><div class="hs-l">Branches</div></div>
+      <div><div class="hs-n">🇯🇵</div><div class="hs-l">Licensed</div></div>
+    </div>
+    <a href="#products" class="h-cta">ดูเมนูทั้งหมด</a>
+  </div>
+  <div class="hr">
+    <div class="hr-bg">24</div>
+    <div class="hr-img">
+      <img data-slot="hero" src="images/P1_0.jpg" alt="Croissant Taiyaki">
+    </div>
+    <div class="hr-badge">
+      <strong>24</strong><span>Layers of Dough</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto rv">
+  <div class="mf-item" style="background:rgba(255,184,0,.08);border-radius:4px"><div class="mf-n" style="color:#FFB800">24</div><div class="mf-l" style="color:#FFB800;opacity:.7">Layers of Dough</div></div>
+  <div class="mf-item"><div class="mf-n">5+</div><div class="mf-l">Signature Flavors</div></div>
+  <div class="mf-item"><div class="mf-n">5</div><div class="mf-l">Bangkok Branches</div></div>
+  <div class="mf-item"><div class="mf-n">100%</div><div class="mf-l">Fresh Daily</div></div>
+  <div class="mf-item"><div class="mf-n">🇯🇵</div><div class="mf-l">Japan Licensed</div></div>
+</div>
+
+<!-- ═══ KEY STATEMENT ═══ -->
+<div class="statement rv">
+  <div class="st-wrap">
+    <div class="st-left">
+      <div class="st-badge">ต้นตำรับ · ลิขสิทธิ์แท้จากญี่ปุ่น · เจ้าแรกในประเทศไทย</div>
+      <span class="st-num">24</span>
+      <div class="st-unit-row">
+        <span class="st-unit-th">ชั้น</span>
+        <span class="st-unit-en">Layers of Croissant Dough</span>
+      </div>
+      <div class="st-line"></div>
+      <div class="st-sub">แป้งครัวซองต์ต้นตำรับ · ทำสดทุกวัน</div>
+      <p class="st-desc"><b>เจ้าแรกและเจ้าเดียวในประเทศไทย</b> — สูตรลับคัดสรรตรงจากญี่ปุ่น ทุกชั้นแป้งคือความพิถีพิถันที่ไม่มีทางลัด กรอบนอก นุ่มใน สัมผัสได้ในทุกคำที่กัด</p>
+      <div class="st-pills">
+        <span class="pill hot">แป้ง 24 ชั้น</span>
+        <span class="pill">ต้นตำรับจากญี่ปุ่น</span>
+        <span class="pill">เจ้าแรกในไทย</span>
+        <span class="pill">ทำสดทุกวัน</span>
+      </div>
+    </div>
+    <div class="st-right">
+      <img data-slot="statement" src="images/P2_0.jpg" alt="แป้ง 24 ชั้น">
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT US ═══ -->
+<section id="about">
+  <div class="w">
+    <div class="about-grid">
+      <div class="about-duo rv">
+        <div class="ad-frame tall">
+          <div class="ad-accent"></div>
+          <img data-slot="about1" src="images/P1_0.jpg" alt="Croissant Taiyaki">
+        </div>
+        <div class="ad-frame">
+          <img data-slot="about2" src="images/P3_0.jpg" alt="Product">
+        </div>
+        <div class="ad-frame">
+          <img data-slot="about3" src="images/P4_0.jpg" alt="Craft">
+        </div>
+      </div>
+      <div class="about-text rv d2">
+        <div class="sec-eye">About Us</div>
+        <h2 class="sec-h" style="margin-bottom:24px">เกี่ยวกับ<br><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">เรา</em></h2>
+        <span class="a-origin">🇯🇵 Original Recipe from Japan — First &amp; Only in Thailand</span>
+        <p>เราคือ <b>ครัวซองต์ปลา</b> สูตรต้นตำรับจากญี่ปุ่นเจ้าแรกและเจ้าเดียว ในประเทศไทย มุ่งเน้นคุณภาพในทุกขั้นตอนการทำ ด้วยการคัดสรรวัตถุดิบที่ดีที่สุดและทำสดใหม่ทุกชิ้น</p>
+        <p>เพราะเราต้องการให้ลูกค้าทุกคนได้สัมผัส<b>ความอร่อยและคุณภาพที่ดีที่สุด</b>ในทุกคำที่ได้ทาน</p>
+        <div class="about-tags">
+          <span class="a-tag">Japanese Licensed</span><span class="a-tag">Premium Ingredients</span>
+          <span class="a-tag">Fresh Daily</span><span class="a-tag">First in Thailand</span><span class="a-tag">24 Layers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HISTORY ═══ -->
+<section id="history">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Our History</div>
+    <h2 class="sec-h">เส้นทาง<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">ของเรา</em></h2></div>
+    <div class="hist-grid rv d1">
+      <div class="hist-col">
+        <div class="he"><div class="he-yr">Origin — ญี่ปุ่น</div><div class="he-ttl">🇯🇵 จุดกำเนิดในญี่ปุ่น</div><div class="he-body">ครัวซองต์ทายากิก่อตั้งโดยบริษัท ฮอตแลนด์ จำกัด ประเทศญี่ปุ่น เริ่มจากแป้งอูซูกาวา (Usukawa) พัฒนาเป็นสูตรครัวซองต์แท้ 24 ชั้นที่ไม่เหมือนใคร</div></div>
+        <div class="he"><div class="he-yr">ปี 2556</div><div class="he-ttl">📈 พัฒนาสูตร 24 ชั้น</div><div class="he-body">พัฒนาแป้งครัวซองต์ใหม่ 24 ชั้น ขยายสาขาอย่างรวดเร็ว ใน 1 ปีสร้างรายได้มหาศาล กระแสตอบรับดีมากจนมีคิวลูกค้าสูงสุดถึง 4 ชั่วโมง</div></div>
+        <div class="he"><div class="he-yr">ปี 2557 — สู่ไทย</div><div class="he-ttl">✈️ บินสู่ประเทศไทย</div><div class="he-body">ทีมผู้บริหาร บริษัท สเปลนดิด จำกัด เดินทางไปญี่ปุ่น ได้รับลิขสิทธิ์สูตรต้นตำรับในรูปแบบ Master Franchise เจ้าแรกในประเทศไทย</div></div>
+      </div>
+      <div class="hist-col">
+        <div class="he"><div class="he-yr">Pop-Up Era</div><div class="he-ttl">🎪 Pop-Up Store แรกในไทย</div><div class="he-body">เปิดจำหน่ายแบบ Pop-Up Store ย่านทองหล่อและสยามสแควร์ กระแสตอบรับดีเกินคาด มีคิวลูกค้าสูงสุดถึง 4 ชั่วโมง</div></div>
+        <div class="he"><div class="he-yr">Events</div><div class="he-ttl">🏆 ร่วม Events ชั้นนำ</div><div class="he-body">ร่วมงาน Thaniya Japan Festival, Dragon Street Market @Emsphere, The Mall, Central ลาดพร้าว, OURS @เจริญนคร สร้างการรับรู้แบรนด์ในวงกว้าง</div></div>
+        <div class="he"><div class="he-yr">Now — 2026</div><div class="he-ttl">🏬 5 สาขา &amp; Growing</div><div class="he-body">5 สาขาทั่วกรุงเทพฯ พร้อม Franchise Plan เป้าหมาย 100 สาขาใน 5 ปี ยอดขายเป้า 15,000 บาท/วัน/สาขา</div></div>
+      </div>
+    </div>
+    <!-- History image strip -->
+    <div class="hist-strip rv d2">
+      <div class="hs-frame"><img data-slot="hist1" src="images/P3_0.jpg" alt="History 1"></div>
+      <div class="hs-frame"><img data-slot="hist2" src="images/P2_0.jpg" alt="History 2"></div>
+      <div class="hs-frame"><img data-slot="hist3" src="images/P4_0.jpg" alt="History 3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TARGET AUDIENCE ═══ -->
+<section id="target" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;z-index:0"><img data-slot="targetbg" src="images/P1_0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.05;filter:grayscale(80%)"></div>
+  <div class="w" style="position:relative;z-index:1">
+    <div class="rv"><div class="sec-eye">Target Audience</div>
+    <h2 class="sec-h">กลุ่มเป้า<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">หมาย</em></h2></div>
+    <div class="target-grid rv d1">
+      <div class="tg-card">
+        <span class="tg-num">01</span>
+        <span class="tg-type">Core Target — หลัก</span>
+        <div class="tg-head">อายุ 22–40 ปี</div>
+        <div class="tg-sub" style="color:var(--orange);font-weight:700;font-size:13px;margin-bottom:20px">วัยทำงาน / คนเมือง</div>
+        <ul class="tg-list">
+          <li>ชอบลองของที่มี Story และภาพลักษณ์ดี</li>
+          <li>ระดับรายได้ปานกลาง–สูง</li>
+          <li>ให้ความสำคัญ "คุณภาพ" ก่อนราคา</li>
+          <li>ซื้อระหว่างวัน หรือเป็นของฝาก</li>
+        </ul>
+      </div>
+      <div class="tg-card sec">
+        <span class="tg-num">02</span>
+        <span class="tg-type">Secondary Target — รอง</span>
+        <div class="tg-head">อายุ 15–25 ปี</div>
+        <div class="tg-sub" style="color:#FFB800;font-weight:700;font-size:13px;margin-bottom:20px">นักเรียน / นักศึกษา</div>
+        <ul class="tg-list">
+          <li>ชอบลองของใหม่ Trending</li>
+          <li>เน้นถ่ายรูปสวย เหมาะ Social Media</li>
+          <li>สไตล์เดือน / ใส่ใจภาพลักษณ์</li>
+          <li>ซื้อเพื่อแชร์ประสบการณ์</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ═══ BRAND POSITIONING ═══ -->
+<section id="positioning">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Brand Positioning</div>
+    <h2 class="sec-h">Brand<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)"> Position</em></h2></div>
+    <div class="pos-layout rv d1">
+      <div class="pos-text">
+        <div class="pos-block">
+          <span class="pb-label">Positioning Statement</span>
+          <div class="pb-head">ขนมปลาต้นตำรับแท้จากญี่ปุ่น<br>เจ้าแรกและเจ้าเดียวในประเทศไทย</div>
+          <div class="pb-body">"ความเป็นต้นตำรับ (AUTHENTICITY)" และ "ความพรีเมียมของเนื้อสัมผัส (PREMIUM TEXTURE)"<br><br>คู่แข่งขาย "ความอิ่มในราคาถูก" แต่เราขาย "ประสบการณ์ความกรอบระดับตำนานจากญี่ปุ่น"</div>
+        </div>
+        <div class="pos-block hi">
+          <span class="pb-label">Key Message</span>
+          <div class="pb-head">"เราไม่ใช่แค่ขนมปลา แต่เป็นงานศิลปะความกรอบ 24 ชั้น ลิขสิทธิ์แท้จากญี่ปุ่นที่คุณหาจากที่ไหนไม่ได้"</div>
+        </div>
+      </div>
+      <div class="pos-img">
+        <img data-slot="positioning" src="images/P2_0.jpg" alt="Brand Positioning">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT STRENGTH ═══ -->
+<section id="strength">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Product Strength</div>
+    <h2 class="sec-h">จุดแข็ง<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">ของเรา</em></h2></div>
+    <div class="str-grid rv d1">
+      <div class="str-card"><div style="display:inline-block;background:#FFB800;color:#0F0D0A;font-size:10px;font-weight:900;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-bottom:14px">01</div><div class="sc-head">Authentic Croissant Dough</div><div class="sc-body">แป้งครัวซองต์สูตรต้นตำรับ มีความหนาถึง <b style="color:var(--cream)">24 ชั้น</b> กรอบนอก นุ่มใน ไม่อมน้ำมัน สัมผัสได้ทุกชั้นในทุกคำที่กัด</div></div>
+      <div class="str-card"><div style="display:inline-block;background:#FFB800;color:#0F0D0A;font-size:10px;font-weight:900;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-bottom:14px">02</div><div class="sc-head">Signature Sugar Glaze</div><div class="sc-body">น้ำตาลเกล็ดใหญ่พิเศษ ไม่ละลายง่ายเมื่อโดนความร้อน เพิ่มความกรอบและหอมในจังหวะที่ใช่</div></div>
+      <div class="str-card"><div style="display:inline-block;background:#FFB800;color:#0F0D0A;font-size:10px;font-weight:900;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-bottom:14px">03</div><div class="sc-head">ไส้คัดสรรพิเศษ</div><div class="sc-body">ไส้อัดแน่น วัตถุดิบระดับพรีเมียม คัดสรรตรงจากญี่ปุ่น หลากหลายรสชาติ ไม่มีสูตรลัด</div></div>
+      <div class="str-card"><div style="display:inline-block;background:#FFB800;color:#0F0D0A;font-size:10px;font-weight:900;letter-spacing:.12em;padding:3px 10px;border-radius:2px;margin-bottom:14px">04</div><div class="sc-head">175°C · 5 นาที · Fresh Daily</div><div class="sc-body">อบสดใหม่ทุกชิ้น ไม่มีของเหลือข้ามวัน ทุกสาขาได้มาตรฐานเดียวกัน สมบูรณ์แบบทุกวัน</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS — card grid ═══ -->
+<section id="products">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Our Menu</div>
+    <h2 class="sec-h">เมนู<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">ของเรา</em></h2></div>
+    <div class="ptabs rv d1">
+      <button class="ptab on" onclick="filterP('all',this)">All</button>
+      <button class="ptab" onclick="filterP('sweet',this)">Sweet</button>
+      <button class="ptab" onclick="filterP('savory',this)">Savory</button>
+      <button class="ptab" onclick="filterP('best',this)">Best Seller</button>
+    </div>
+    <div class="prod-grid rv d2" id="pgrid">
+
+      <div class="prod-card" data-cat="sweet best">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#3D1A00 0%,#FF4E00 70%,#FF8C00 100%)">
+          <div class="pc-acc" style="background:var(--grad)"></div>
+          <div class="pc-emoji">🐟</div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">ถั่วแดง</div>
+          <div class="pc-en">Red Bean / Crystal Sugar</div>
+          <div class="pc-desc">ไส้อริจินัลสูตรต้นตำรับจากญี่ปุ่น ขายดีที่สุดของร้าน คัดถั่วเม็ดโตนาก อัดแน่น หวานมันกำลังดี เป็นไส้ซิกเนเจอร์ที่ทางร้านแนะนำ — CROISSANT RED BEAN CRYSTAL SUGAR</div>
+          <div class="pc-footer">
+            <div class="pc-price">70<sub>.-</sub></div>
+            <div class="pc-badge" style="background:#FFB800;border:none;color:#0F0D0A;font-weight:900">⭐ Best Seller</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-cat="sweet best">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#2A2000 0%,#8B6000 60%,#FFB800 100%)">
+          <div class="pc-acc" style="background:linear-gradient(135deg,#FFB800,#FF8C00)"></div>
+          <div class="pc-emoji">🍮</div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">วานิลลา คัสตาร์ด</div>
+          <div class="pc-en">Vanilla Custard</div>
+          <div class="pc-desc">ไส้คัสตาร์ดวานิลลาจาก วิปครีมสด เพิ่มความนุ่มเนย กลมกล่อม หอมมัน หวาน ละมุน ยิ่งทานเย็นๆ ยิ่งอร่อย — CROISSANT VANILLA CUSTARD</div>
+          <div class="pc-footer">
+            <div class="pc-price">70<sub>.-</sub></div>
+            <div class="pc-badge">Popular</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-cat="sweet">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#0E1A28 0%,#1A3A5C 60%,#00D4A8 100%)">
+          <div class="pc-acc" style="background:linear-gradient(135deg,#00D4A8,#0088CC)"></div>
+          <div class="pc-emoji">🍠</div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">ซาโตอิโม ทาโร่</div>
+          <div class="pc-en">Satoimo Taro / Chestnut</div>
+          <div class="pc-desc">ไส้เผือกซาโตอิโมะ สินผลนุ่มละมุนของเผือกญี่ปุ่นแท้ คัดเลือกอย่างดี รสหวานหอมกลมกล่อม เข้ากันลงตัวกับแป้งครัวซองต์กรอบๆ — CROISSANT SATOIMO TARO CHESTNUT</div>
+          <div class="pc-footer">
+            <div class="pc-price">70<sub>.-</sub></div>
+            <div class="pc-badge">Japanese</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-cat="sweet">
+        <div class="pc-visual" style="background:linear-gradient(145deg,#0A1828 0%,#0D3050 60%,#4A90D9 100%)">
+          <div class="pc-acc" style="background:linear-gradient(135deg,#4A90D9,#00B4E4)"></div>
+          <div class="pc-emoji">🥛</div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-name">ฮอกไกโด มิลค์ ครีม</div>
+          <div class="pc-en">Hokkaido Milk Cream</div>
+          <div class="pc-desc">นมโคแท้จากฮอกไกโดผสมวิปปิ้งครีมสดใหม่ทุกชิ้น อร่อย หอม มัน หวานน้อย ปราศจากวัตถุกันเสีย — CROISSANT WHIPPED CREAM HOKKAIDO MILK</div>
+          <div class="pc-footer">
+            <div class="pc-price">80<sub>.-</sub></div>
+            <div class="pc-badge">Premium</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-cat="savory" style="grid-column:1/-1">
+        <div style="display:grid;grid-template-columns:1fr 2fr">
+          <div class="pc-visual" style="background:linear-gradient(145deg,#281018 0%,#381525 50%,#1A080E 100%);border-right:1px solid var(--line2)">
+            <div class="pc-acc"></div>
+            <div class="pc-emoji">🧀</div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-name">ดับเบิ้ลแฮม ดับเบิ้ลชีส</div>
+            <div class="pc-en">Double Ham / Double Cheese</div>
+            <div class="pc-desc">ไส้ต้นตำรับหนึ่งเดียวของร้าน อัดแน่นด้วยแฮมและผสดตำชีสสดใหม่ เค็มกำลังดี อิ่มเต็ม หอมเนย เข้ากันกับแป้งครัวซองต์สูตรเฉพาะ — CROISSANT PORK HAM CHEDDAR</div>
+            <div class="pc-footer">
+              <div class="pc-price">80<sub>.-</sub></div>
+              <div class="pc-badge">Savory Signature</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE CRAFT ═══ -->
+<section id="craft" style="position:relative">
+  <div class="craft-bg-img" style="position:absolute;inset:0;z-index:0;overflow:hidden"><img data-slot="craftbg" src="images/P4_0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.06;filter:grayscale(80%)"></div>
+  <div class="w" style="position:relative;z-index:1">
+    <div class="craft-wrap">
+      <div>
+        <div class="sec-eye rv">The Craft</div>
+        <h2 class="sec-h rv" style="margin-bottom:28px">ความพิเศษ<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange);font-size:clamp(30px,4vw,50px)">ที่ไม่เหมือนใคร</em></h2>
+        <div class="craft-secret rv d1">
+          <span class="cs-label">The Secret</span>
+          <div class="cs-head">The Craft of Flavor</div>
+          <div class="cs-body">ด้วยแป้งครัวซองต์สูตรพิเศษ หนาถึง <b style="color:var(--cream)">24 ชั้น</b> ได้ทั้งความนุ่ม หอม กรอบ ในทุกการสัมผัส ผสมผสานกับไส้อัดแน่น<br><br>อบนาน <b style="color:var(--cream)">5 นาที</b> ที่ <b style="color:var(--cream)">175°C</b> — ทุกสาขาได้มาตรฐานเดียวกัน ไม่ว่าจะสั่งที่ไหน รสชาติเหมือนกันทุกครั้ง</div>
+        </div>
+        <div class="craft-steps rv d2">
+          <div class="ci"><div class="ci-n">01</div><div><div class="ci-h">แป้งครัวซองต์ 24 ชั้น</div><div class="ci-b">กรอบนอก นุ่มใน ไม่อมน้ำมัน สัมผัสทุกชั้น</div></div></div>
+          <div class="ci"><div class="ci-n">02</div><div><div class="ci-h">Crystal Sugar Glaze</div><div class="ci-b">น้ำตาลเกล็ดใหญ่พิเศษ ไม่ละลาย กรอบสมบูรณ์</div></div></div>
+          <div class="ci"><div class="ci-n">03</div><div><div class="ci-h">ไส้พรีเมียมคัดสรร</div><div class="ci-b">อัดแน่น วัตถุดิบระดับ Premium จากญี่ปุ่น</div></div></div>
+          <div class="ci"><div class="ci-n">04</div><div><div class="ci-h">175°C · 5 นาที · Fresh Daily</div><div class="ci-b">ทำสดทุกวัน ไม่มีของเหลือข้ามวัน</div></div></div>
+        </div>
+      </div>
+      <div class="craft-imgs rv d3">
+        <div class="ci-frame big"><img data-slot="craft1" src="images/P4_0.jpg" alt="The Craft"></div>
+        <div class="ci-frame sm"><img data-slot="craft2" src="images/P3_0.jpg" alt="Detail"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ USP ═══ -->
+<section id="usp" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;z-index:0"><img data-slot="uspbg" src="images/P3_0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.04;filter:grayscale(80%) sepia(50%)"></div>
+  <div class="w" style="position:relative;z-index:1">
+    <div class="rv"><div class="sec-eye">Unique Selling Points</div>
+    <h2 class="sec-h">ทำไมต้อง<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">เรา</em></h2></div>
+    <div class="usp-grid rv d1">
+      <div class="usp-card">
+        <div class="uc-n">01</div>
+        <div class="uc-icon" style="font-size:40px;margin-bottom:12px">🥐</div>
+        <div class="uc-h">แป้ง 24 ชั้น<br><span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream3)">The Perfect Hybrid Crunch</span></div>
+        <div class="uc-b">การรวมตัวที่สมบูรณ์แบบระหว่าง "ความหอมเนยของแป้งครัวซองต์" กับไส้หลากหลาย ไม่มีที่ไหนทำได้เหมือน</div>
+        <div class="usp-pill" style="margin-top:16px;display:inline-block;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:20px;background:var(--grad);color:#fff">24 LAYERS</div>
+      </div>
+      <div class="usp-card">
+        <div class="uc-n">02</div>
+        <div class="uc-icon" style="font-size:40px;margin-bottom:12px">🇯🇵</div>
+        <div class="uc-h">ต้นตำรับจากญี่ปุ่น<br><span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream3)">Japanese Licensed Quality</span></div>
+        <div class="uc-b">การันตีคุณภาพ สูตรลับส่งตรงจากญี่ปุ่น ไม่ใช่สูตรลอกเลียน — ต้นตำรับแท้ 100%</div>
+        <div class="usp-pill" style="margin-top:16px;display:inline-block;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:20px;background:#FFB800;color:#0F0D0A">JAPAN LICENSED</div>
+      </div>
+      <div class="usp-card">
+        <div class="uc-n">03</div>
+        <div class="uc-icon" style="font-size:40px;margin-bottom:12px">⭐</div>
+        <div class="uc-h">เจ้าแรกในไทย<br><span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cream3)">First &amp; Only in Thailand</span></div>
+        <div class="uc-b">เจ้าแรกและเจ้าเดียวในประเทศไทย — หาจากที่ไหนไม่ได้ ประสบการณ์ที่ไม่มีใครเทียบได้</div>
+        <div class="usp-pill" style="margin-top:16px;display:inline-block;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:20px;background:linear-gradient(135deg,#00D4A8,#0088CC);color:#fff">FIRST IN THAILAND</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-bar rv">
+  <div class="quote-bar-img"><img data-slot="quotebg" src="images/P3_0.jpg" alt=""></div>
+  <div class="quote-bar-overlay"></div>
+  <div class="q-inner">
+    <p class="q-text">"เราไม่ใช่แค่<em>ขนมปลา</em> — แต่เป็น<em>งานศิลปะความกรอบ 24 ชั้น</em> ลิขสิทธิ์แท้จากญี่ปุ่น ที่คุณหาจากที่ไหนไม่ได้"</p>
+    <div class="q-attr">Croissant Taiyaki · Original French Sweets · 2026</div>
+  </div>
+</div>
+
+<!-- ═══ BOOTH & EVENTS ═══ -->
+<section id="booth">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Booth &amp; Events</div>
+    <h2 class="sec-h">Booth<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)"> &amp; Pop-Up</em></h2></div>
+    <!-- Asymmetric: 1 large left + 3 stacked right -->
+    <div class="booth-hero rv d1">
+      <div class="booth-main">
+        <img data-slot="booth1" src="images/P1_0.jpg" alt="Booth Main">
+      </div>
+      <div class="booth-stack">
+        <div class="bs-frame"><img data-slot="booth2" src="images/P2_0.jpg" alt="Booth 2"></div>
+        <div class="bs-frame"><img data-slot="booth3" src="images/P3_0.jpg" alt="Booth 3"></div>
+        <div class="bs-frame"><img data-slot="booth4" src="images/P4_0.jpg" alt="Booth 4"></div>
+      </div>
+    </div>
+    <div class="booth-events rv d2">
+      <span class="be-label">Events ที่ผ่านมา</span>
+      <div class="ev-chips">
+        <div class="ev-chip">🇯🇵 Thaniya Japan 2025</div>
+        <div class="ev-chip">Dragon Street Market @Emsphere</div>
+        <div class="ev-chip">The Mall บางแค</div>
+        <div class="ev-chip">Central ลาดพร้าว</div>
+        <div class="ev-chip">OURS @เจริญนคร</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOCATIONS ═══ -->
+<section id="locations">
+  <div class="w">
+    <div class="rv"><div class="sec-eye">Shop List</div>
+    <h2 class="sec-h">สาขา<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">ของเรา</em></h2></div>
+    <!-- Branch cards rendered by JS -->
+    <div class="branch-cards rv d1" id="branchCards"></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" style="position:relative;overflow:hidden">
+  <div class="contact-bg-img" style="position:absolute;inset:0;z-index:0">
+    <img data-slot="contactbg" src="images/P2_0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.07;filter:grayscale(70%)">
+  </div>
+  <div class="w" style="position:relative;z-index:1">
+    <div class="rv" style="text-align:center">
+      <div class="sec-eye" style="justify-content:center">Get In Touch</div>
+      <h2 class="sec-h" style="text-align:center">ติดต่อ<em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--orange)">เรา</em></h2>
+    </div>
+    <!-- Social cards — larger, more visual -->
+    <div class="soc-grid rv d1">
+      <a href="https://www.facebook.com/Croissanttaiyakithailand" target="_blank" rel="noopener" class="sc sc-fb">
+        <span class="si">📘</span><div class="sn">Facebook</div><div class="sh2">Croissanttaiyakithailand</div>
+        <div class="sc-arrow">→</div>
+      </a>
+      <a href="https://line.me/R/ti/p/@croissanttaiyakith" target="_blank" rel="noopener" class="sc sc-line">
+        <span class="si">💬</span><div class="sn">LINE OA</div><div class="sh2">@CROISSANTTAIYAKITH</div>
+        <div class="sc-arrow">→</div>
+      </a>
+      <a href="https://www.instagram.com/croissanttaiyaki_th/" target="_blank" rel="noopener" class="sc sc-ig">
+        <span class="si">📸</span><div class="sn">Instagram</div><div class="sh2">@CROISSANTTAIYAKI_TH</div>
+        <div class="sc-arrow">→</div>
+      </a>
+      <a href="https://www.tiktok.com/@croissanttaiyakith" target="_blank" rel="noopener" class="sc sc-tt">
+        <span class="si">🎵</span><div class="sn">TikTok</div><div class="sh2">@CROISSANTTAIYAKITH</div>
+        <div class="sc-arrow">→</div>
+      </a>
+    </div>
+    <!-- Franchise / Partner CTA — single clean block -->
+    <div class="franchise-cta rv d2">
+      <div class="fc-left">
+        <div class="fc-label">Franchise &amp; Partnership</div>
+        <div class="fc-head">สนใจเป็นพาร์ทเนอร์?</div>
+        <div class="fc-body">Franchise · Pop-Up Store · Catering · B2B<br>ยินดีตอบทุกช่องทาง ติดต่อผ่าน Facebook ได้เลย</div>
+      </div>
+      <a href="https://www.facebook.com/Croissanttaiyakithailand" target="_blank" class="fc-btn">
+        <span>📩</span> ติดต่อสอบถาม
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-l">Croissant Taiyaki</div>
+  <div class="ft-c">© 2026 · Japanese Licensed · Original French Sweets · เจ้าแรกและเจ้าเดียวในประเทศไทย</div>
+  <div class="ft-links"><a href="https://www.facebook.com/Croissanttaiyakithailand" target="_blank">FB</a><a href="https://www.instagram.com/croissanttaiyaki_th/" target="_blank">IG</a><a href="https://www.tiktok.com/@croissanttaiyakith" target="_blank">TT</a><a href="#home">↑ Top</a></div>
+</footer>
+
+<!-- ═══ ADMIN PANEL ═══ -->
+<div id="admin">
+  <div class="ap-bg" onclick="adminClose()"></div>
+  <div class="ap-panel">
+    <div class="ap-head">
+      <div class="ap-title"><span>Image Manager</span>คลิก Logo 5× เพื่อเปิด</div>
+      <button class="ap-close" onclick="adminClose()">✕</button>
+    </div>
+    <div class="ap-body" id="apBody"></div>
+    <div class="ap-foot">
+      <button class="ap-export" onclick="adminExport()">⬇ Download Updated HTML File</button>
+      <button class="ap-reset" onclick="adminResetAll()">↺ Reset All Images</button>
+      <div class="ap-hint">คลิก Logo 5× เพื่อเปิด/ปิด Admin Panel</div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<input type="file" id="fileInp" accept="image/*" style="display:none">
+
+<script>
+/* ── BRANCHES DATA ───────────────────── */
+const DEFAULT_BRANCHES=[
+  {name:'โนโนพาร์ค พระราม 3',sub:'Mono Park Rama 3',hours:'10:00–19:00 (วันคี่)',phone:'02-683-1193',grab:true,lineman:true,photo:'images/P1_0.jpg'},
+  {name:'515 Victory อนุสาวรีย์ชัยฯ',sub:'Victory Monument',hours:'10:00–19:30 (ทุกวัน)',phone:'02-125-2852',grab:true,lineman:true,photo:'images/P2_0.jpg'},
+  {name:'HomePro บางนา',sub:'HomePro Bang Na',hours:'10:00–19:30 (ทุกวัน)',phone:'02-125-7720',grab:true,lineman:true,photo:'images/P3_0.jpg'},
+  {name:'HomePro รังสิต',sub:'HomePro Rangsit',hours:'10:00–19:30 (ทุกวัน)',phone:'02-102-1373',grab:true,lineman:true,photo:'images/P4_0.jpg'},
+  {name:'สามย่าน มิตรทาวน์',sub:'Samyan Mitrtown',hours:'10:00–19:30 (ทุกวัน)',phone:'',grab:true,lineman:true,photo:''},
+];
+function getBranches(){const s=localStorage.getItem('ct-branches');return s?JSON.parse(s):DEFAULT_BRANCHES}
+function saveBranches(b){localStorage.setItem('ct-branches',JSON.stringify(b))}
+function renderBranches(){
+  const branches=getBranches();
+  const cards=document.getElementById('branchCards');
+  if(!cards)return;
+  cards.innerHTML=branches.map((b,i)=>{
+    const num=String(i+1).padStart(2,'0');
+    // Photo is always taken directly from branch data (b.photo)
+    const photo=b.photo||'';
+    const imgHtml=photo
+      ?`<img src="${photo}" alt="${b.name}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">`
+      :`<div class="bc-placeholder">
+          <div class="bc-ph-fish">🐟</div>
+          <div class="bc-ph-num">${num}</div>
+          <div class="bc-ph-label">ยังไม่มีรูปสาขา</div>
+        </div>`;
+    return `<div class="branch-card${!photo?' no-photo':''}">
+      <div class="bc-photo" style="position:relative;overflow:hidden">${imgHtml}
+        <button class="bc-upload-btn" onclick="branchUploadPhoto(${i},event)">📷 เปลี่ยนรูป</button>
+      </div>
+      <div class="bc-info">
+        <div class="bc-num">${num}</div>
+        <div class="bc-name">${b.name}</div>
+        <div class="bc-sub">${b.sub||''}</div>
+        <div class="bc-hours">🕙 ${b.hours}${b.phone?' · 📞 '+b.phone:''}</div>
+        <div class="bc-chips">
+          ${b.grab?'<a href="https://food.grab.com/" target="_blank" class="lc">Grab</a>':''}
+          ${b.lineman?'<a href="https://lineman.line.me/" target="_blank" class="lc">Line Man</a>':''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  // Update counts
+  const mn=document.querySelector('.mf-item:nth-child(3) .mf-n');
+  if(mn)mn.textContent=branches.length;
+  const hn=document.querySelector('#home .h-stats div:nth-child(3) .hs-n');
+  if(hn)hn.textContent=branches.length;
+}
+renderBranches();
+
+/* Branch admin functions */
+function buildBranchAdmin(){
+  const branches=getBranches();
+  return `<div class="ap-section">
+    <div class="ap-section-title">Branches — สาขา (${branches.length} สาขา)</div>
+    <div class="bm-list">
+      ${branches.map((b,i)=>`
+        <div class="bm-item">
+          <div class="bm-num" style="background:#FFB800;color:#0F0D0A;padding:4px 6px;border-radius:2px;font-size:10px;width:auto;flex-shrink:0">${String(i+1).padStart(2,'0')}</div>
+          <div class="ap-slot-preview" onclick="adminPickBranchPhoto(${i})" title="คลิกเพื่อเปลี่ยนรูป" style="cursor:pointer;flex-shrink:0;width:56px;height:42px;border-radius:3px;overflow:hidden;background:#222;border:1px solid #333">
+            <img src="${b.photo||'images/P1_0.jpg'}" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          <div class="bm-info">
+            <div class="bm-name">${b.name}</div>
+            <div class="bm-detail">${b.hours}${b.phone?' · '+b.phone:''}</div>
+            <div style="font-size:9px;color:#555;margin-top:2px">📷 คลิกรูปเพื่อเปลี่ยน</div>
+          </div>
+          <button class="bm-del" onclick="branchDelete(${i})" title="ลบสาขา">✕</button>
+        </div>`).join('')}
+    </div>
+    <div class="bm-form">
+      <div class="bm-form-title">+ เพิ่มสาขาใหม่</div>
+      <input class="bm-input" id="bName" placeholder="ชื่อสาขา (ภาษาไทย) *">
+      <input class="bm-input" id="bSub" placeholder="ชื่อ Subtitle (English)">
+      <input class="bm-input" id="bHours" placeholder="เวลาเปิด-ปิด เช่น 10:00–19:30 (ทุกวัน)">
+      <input class="bm-input" id="bPhone" placeholder="เบอร์โทร (ไม่บังคับ)">
+      <div class="bm-checks">
+        <label class="bm-check"><input type="checkbox" id="bGrab" checked> Grab</label>
+        <label class="bm-check"><input type="checkbox" id="bLineman" checked> Line Man</label>
+      </div>
+      <button class="bm-add-btn" onclick="branchAdd()">+ เพิ่มสาขา</button>
+    </div>
+  </div>`;
+}
+let branchPhotoIdx = null;
+function adminPickBranchPhoto(idx){
+  branchPhotoIdx = idx;
+  currentSlot = null; // not a regular slot
+  const inp = document.getElementById('fileInp');
+  inp.value = '';
+  inp.click();
+}
+function branchDelete(idx){localStorage.removeItem('ct-bphoto-'+idx);
+
+  const b=getBranches();b.splice(idx,1);saveBranches(b);renderBranches();buildAdmin();showToast('🗑 ลบสาขาแล้ว')}
+function branchAdd(){
+  const name=document.getElementById('bName').value.trim();
+  if(!name){showToast('⚠ กรุณาใส่ชื่อสาขา');return}
+  const b=getBranches();
+  b.push({name,sub:document.getElementById('bSub').value.trim(),hours:document.getElementById('bHours').value.trim()||'10:00–19:30 (ทุกวัน)',phone:document.getElementById('bPhone').value.trim(),grab:document.getElementById('bGrab').checked,lineman:document.getElementById('bLineman').checked,photo:''});
+  saveBranches(b);renderBranches();buildAdmin();showToast('✓ เพิ่มสาขาแล้ว')}
+
+/* ── THEME ────────────────────────────── */
+const TB=document.getElementById('themeBtn'),H=document.documentElement;
+const sv=localStorage.getItem('ct-th');if(sv){H.setAttribute('data-theme',sv);upIcon()}
+TB.addEventListener('click',()=>{const n=H.getAttribute('data-theme')==='dark'?'light':'dark';H.setAttribute('data-theme',n);localStorage.setItem('ct-th',n);upIcon()});
+function upIcon(){TB.textContent=H.getAttribute('data-theme')==='dark'?'☀️':'🌙'}
+
+/* ── SMOOTH SCROLL ────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const el=document.getElementById(a.getAttribute('href').slice(1));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}});
+});
+
+/* ── PRODUCT FILTER ───────────────────── */
+function filterP(cat,btn){
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+  document.querySelectorAll('.prod-card').forEach(r=>{
+    const cats=r.dataset.cat||'',show=cat==='all'||cats.includes(cat);
+    r.style.display=show?'':'none';
+    if(show){r.style.opacity='0';setTimeout(()=>r.style.opacity='1',20)}
+  });
+}
+
+/* ── REVEAL ───────────────────────────── */
+function revealAll(){document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'))}
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*60)})},{threshold:.06});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  setTimeout(revealAll,2000);
+}else{revealAll()}
+setTimeout(()=>{document.querySelectorAll('.rv').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight)el.classList.add('in')})},100);
+
+/* ── ADMIN IMAGE MANAGER ──────────────── */
+const SLOTS=[
+  {id:'hero',       label:'Hero — รูปหลัก (ขวา)',          section:'Hero'},
+  {id:'statement',  label:'Statement — รูปขวา',             section:'Key Statement'},
+  {id:'about1',     label:'About — ซ้าย (ใหญ่)',            section:'About Us'},
+  {id:'about2',     label:'About — บนขวา',                  section:'About Us'},
+  {id:'about3',     label:'About — ล่างขวา',                section:'About Us'},
+  {id:'hist1',      label:'History — รูปซ้าย',              section:'History'},
+  {id:'hist2',      label:'History — รูปกลาง',              section:'History'},
+  {id:'hist3',      label:'History — รูปขวา',               section:'History'},
+  {id:'positioning',label:'Brand Positioning — รูป',         section:'Positioning'},
+  {id:'craft1',     label:'Craft — รูปใหญ่',                section:'The Craft'},
+  {id:'craft2',     label:'Craft — รูปเล็ก',                section:'The Craft'},
+  {id:'booth1',     label:'Booth — หลัก (ใหญ่)',            section:'Booth'},
+  {id:'booth2',     label:'Booth — บนขวา',                  section:'Booth'},
+  {id:'booth3',     label:'Booth — กลางขวา',                section:'Booth'},
+  {id:'booth4',     label:'Booth — ล่างขวา',                section:'Booth'},
+  //{id:'shop1',      label:'ร้าน — โนโนพาร์ค พระราม 3',    section:'Locations'},
+  //{id:'shop2',      label:'ร้าน — 515 Victory',             section:'Locations'},
+  //{id:'shop3',      label:'ร้าน — HomePro บางนา',           section:'Locations'},
+  //{id:'shop4',      label:'ร้าน — HomePro รังสิต',          section:'Locations'},
+  {id:'quotebg',    label:'Quote — รูปพื้นหลัง',              section:'Quote'},
+  {id:'contactbg',  label:'Contact — รูปพื้นหลัง',           section:'Contact'},
+  {id:'targetbg',   label:'Target Audience — รูปพื้นหลัง',   section:'Target Audience'},
+  {id:'uspbg',      label:'USP — รูปพื้นหลัง',                section:'USP'},
+  {id:'craftbg',    label:'Craft — รูปพื้นหลัง (Subtle)',     section:'The Craft'},
+];
+
+// Load saved images on page start
+function loadSavedImages(){
+  SLOTS.forEach(s=>{
+    const saved=localStorage.getItem('ct-img-'+s.id);
+    if(saved) document.querySelectorAll(`[data-slot="${s.id}"]`).forEach(el=>el.src=saved);
+  });
+}
+loadSavedImages();
+
+// Build admin panel UI
+function buildAdmin(){
+  const body=document.getElementById('apBody');
+  const sections=[...new Set(SLOTS.map(s=>s.section))];
+  body.innerHTML=buildBranchAdmin()+sections.map(sec=>{
+    const slots=SLOTS.filter(s=>s.section===sec);
+    return `<div class="ap-section">
+      <div class="ap-section-title">${sec}</div>
+      <div class="ap-slots-grid">
+        ${slots.map(s=>{
+          const saved=localStorage.getItem('ct-img-'+s.id);
+          const imgSrc=saved||document.querySelector(`[data-slot="${s.id}"]`)?.src||'';
+          return `<div class="ap-slot" onclick="adminPickSlot('${s.id}')">
+            <div class="ap-slot-preview"><img src="${imgSrc}" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+            <div class="ap-slot-info">
+              <div class="ap-slot-name">${s.label}</div>
+              <div class="ap-slot-status ${saved?'has-img':''}">${saved?'✓ Custom image':'Default image'}</div>
+            </div>
+            <div class="ap-slot-btn">เปลี่ยน</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+let currentSlot=null;
+function adminPickSlot(slotId){
+  currentSlot=slotId;
+  const inp=document.getElementById('fileInp');
+  inp.value='';
+  inp.click();
+}
+document.getElementById('fileInp').addEventListener('change',async function(){
+  if(!this.files[0])return;
+  const dataUrl=await resizeImage(this.files[0],1400);
+  if(branchPhotoIdx !== null){
+    // Branch photo upload
+    const b=getBranches();
+    b[branchPhotoIdx].photo=dataUrl;
+    saveBranches(b);
+    renderBranches();
+    buildAdmin();
+    branchPhotoIdx=null;
+    showToast('✓ อัพเดทรูปสาขาแล้ว');
+  } else if(currentSlot){
+    // Regular image slot
+    localStorage.setItem('ct-img-'+currentSlot,dataUrl);
+    document.querySelectorAll(`[data-slot="${currentSlot}"]`).forEach(el=>el.src=dataUrl);
+    buildAdmin();
+    showToast('✓ อัพเดทรูปแล้ว');
+  }
+});
+
+async function resizeImage(file,maxW=1400){
+  return new Promise(res=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        const ratio=Math.min(1,maxW/img.width);
+        const c=document.createElement('canvas');
+        c.width=img.width*ratio;c.height=img.height*ratio;
+        c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+        res(c.toDataURL('image/jpeg',0.88));
+      };
+      img.src=e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function adminResetAll(){
+  if(!confirm('Reset all custom images?'))return;
+  SLOTS.forEach(s=>{
+    localStorage.removeItem('ct-img-'+s.id);
+    const defaults={'contactbg':'images/P2_0.jpg','targetbg':'images/P1_0.jpg','uspbg':'images/P3_0.jpg','hero':'images/P1_0.jpg','statement':'images/P2_0.jpg','quotebg':'images/P3_0.jpg','craftbg':'images/P4_0.jpg','about1':'images/P1_0.jpg','about2':'images/P3_0.jpg','about3':'images/P4_0.jpg','hist1':'images/P3_0.jpg','hist2':'images/P2_0.jpg','hist3':'images/P4_0.jpg','positioning':'images/P2_0.jpg','craft1':'images/P4_0.jpg','craft2':'images/P3_0.jpg','booth1':'images/P1_0.jpg','booth2':'images/P2_0.jpg','booth3':'images/P3_0.jpg','booth4':'images/P4_0.jpg','shop1':'images/P1_0.jpg','shop2':'images/P2_0.jpg','shop3':'images/P3_0.jpg','shop4':'images/P4_0.jpg'};
+    const def=defaults[s.id]||'';
+    document.querySelectorAll(`[data-slot="${s.id}"]`).forEach(el=>el.src=def);
+  });
+  buildAdmin();
+  showToast('↺ Reset เรียบร้อย');
+}
+
+function adminExport(){
+  showToast('⏳ กำลัง Generate...');
+  setTimeout(()=>{
+    const clone=document.documentElement.cloneNode(true);
+    // Close admin in export
+    clone.querySelector('#admin').style.display='none';
+    // Apply localStorage images into clone
+    SLOTS.forEach(s=>{
+      const saved=localStorage.getItem('ct-img-'+s.id);
+      if(saved) clone.querySelectorAll(`[data-slot="${s.id}"]`).forEach(el=>el.src=saved);
+    });
+    const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html;charset=utf-8'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='croissant-taiyaki-brand-profile.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('✓ Download สำเร็จ!');
+  },100);
+}
+
+/* Admin open/close */
+let logoTaps=0,logoTimer;
+document.getElementById('logoBtn').addEventListener('click',()=>{
+  logoTaps++;clearTimeout(logoTimer);
+  logoTimer=setTimeout(()=>logoTaps=0,2500);
+  if(logoTaps>=5){logoTaps=0;adminOpen()}
+});
+function adminOpen(){buildAdmin();document.getElementById('admin').style.display='flex';document.body.classList.add('admin-mode');showToast('🔧 Admin Panel — คลิกรูปสาขาเพื่อเปลี่ยน')}
+function adminClose(){document.getElementById('admin').style.display='none';document.body.classList.remove('admin-mode')}
+// Keyboard shortcut Ctrl+Shift+A
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();adminOpen()}});
+
+/* Toast */
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+</script>
+</body>
+</html>
